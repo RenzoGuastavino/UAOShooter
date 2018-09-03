@@ -19,7 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetButton("Fire1") && Time.time > _nextFire)
+		if ((Input.GetButton("Fire1") || Input.GetKeyDown(KeyCode.Space)) && Time.time > _nextFire)
 		{
 			_nextFire = Time.time + FireRate;
 			Instantiate(Shot, rb.position, rb.rotation);
