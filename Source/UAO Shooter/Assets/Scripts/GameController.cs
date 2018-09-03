@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    
-    public GameObject enemy; //-- Enemy pbject
+
+    public Transform[] Enemies;
     public Vector3 enemyLimits; //-- Enemy limits (min and max position)
     public float lifeTime; //--Enemy lifeTime
 
@@ -34,7 +34,8 @@ public class GameController : MonoBehaviour
                     z = enemyLimits.z
                 };
                 var enemyRotation = Quaternion.identity;
-                Instantiate(enemy, enemyPosition, enemyRotation);
+
+                Instantiate(Enemies[Random.Range(0, Enemies.Length)], enemyPosition, enemyRotation);
                 yield return new WaitForSeconds(0.5f);
             }
             yield return new WaitForSeconds(4);
