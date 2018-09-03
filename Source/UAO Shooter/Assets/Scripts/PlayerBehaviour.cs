@@ -5,11 +5,25 @@ public class PlayerBehaviour : MonoBehaviour
 {
 	public float XMin, XMax, ZMin, ZMax;
 	public float Speed;
-	private Rigidbody rb;
 	public float tilt;
 
+	public GameObject Shot;
+	public float FireRate;
+
+	private float _nextFire; 
+
+	private Rigidbody rb;
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+	}
+
+	void Update()
+	{
+		if (Input.GetButton("Fire1") && Time.time > _nextFire)
+		{
+			_nextFire = Time.time + FireRate;
+			Instantiate(Shot, rb.position, rb.rotation);
+		}
 	}
 
 	void FixedUpdate()
