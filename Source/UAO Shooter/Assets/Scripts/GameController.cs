@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour
     public float lifeTime; //--Enemy lifeTime
 	public static GameController gameControllerInstance;
 
-	// public GUIText scoreText;
     public Text scoreText;
     private int currentScore = 0;
 
@@ -34,8 +33,6 @@ public class GameController : MonoBehaviour
 	public void GameOver()
 	{
         StartCoroutine(GameOverCoRoutine());
-		
-		//LoadFirstScene();
 	}
 
     private IEnumerator GameOverCoRoutine()
@@ -48,7 +45,7 @@ public class GameController : MonoBehaviour
     {
         while(true)
         {
-            for(int i = 0; i<10; i++)
+            for(int i = 0; i<12; i++)
             {
                 var enemyPosition = new Vector3
                 {
@@ -61,19 +58,7 @@ public class GameController : MonoBehaviour
                 Instantiate(Enemies[UnityEngine.Random.Range(0, Enemies.Length)], enemyPosition, enemyRotation);
                 yield return new WaitForSeconds(0.5f);
             }
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2);
         }
     }
-
-	private IEnumerable LoadFirstScene()
-	{
-		while (true)
-		{
-			// SceneManager.LoadScene(0);
-			yield return new WaitForSeconds(1);
-		}
-		// yield return new WaitForSeconds(3);
-		// Debug.Log(" LoadScene TEST !!!");
-		
-	}
 }

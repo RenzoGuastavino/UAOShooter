@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114821335620925192}
   m_Layer: 0
   m_Name: EnemyA
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d400f8fff1119c9418fac44533dde6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
 --- !u!114 &114821335620925192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac07171e378ff514f80151c38d45dbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   Explosion: {fileID: 1908730068992772, guid: d229dfdd595853f458438636b28b4cbd, type: 2}
-  PlayerExplosion: {fileID: 0}
 --- !u!135 &135869945439916888
 SphereCollider:
   m_ObjectHideFlags: 1

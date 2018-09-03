@@ -10,6 +10,7 @@ public class EnemyBehavior : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        //speed = Random.Range(speed - 1, speed + 2);
         var rigidBody = GetComponent<Rigidbody>();
         rigidBody.velocity = -transform.forward * speed;
     }

@@ -23,7 +23,11 @@ public class DestroyByContact : MonoBehaviour
 			Debug.Log(other.name);
 			return;
 		}
-		Instantiate(Explosion, transform.position, transform.rotation);  
+		Instantiate(Explosion, transform.position, transform.rotation);
+
+        if (other.tag == "Enemy")
+            return;
+
 		if (other.tag == "Player")
 		{
 			//Instantiate(PlayerExplosion, other.transform.position, other.transform.rotation);
