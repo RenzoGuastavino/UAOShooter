@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public Transform[] Enemies;
     public Vector3 enemyLimits; //-- Enemy limits (min and max position)
     public float lifeTime; //--Enemy lifeTime
+	public static GameController gameControllerInstance;
 
 	// public GUIText scoreText;
 	private int score;
@@ -18,6 +19,7 @@ public class GameController : MonoBehaviour
     {
 		score = 0;
 		UpdateScore();
+		gameControllerInstance = this;
 		StartCoroutine(GenerateEnemies());
 	}
 	
