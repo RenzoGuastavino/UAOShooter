@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -13,17 +14,13 @@ public class GameController : MonoBehaviour
 	public static GameController gameControllerInstance;
 
 	// public GUIText scoreText;
-	private int score;
-
     public Text scoreText;
     private int currentScore = 0;
 
 	// Use this for initialization
     void Start ()
     {
-		score = 0;
         AddScore(currentScore);
-		UpdateScore();
 		gameControllerInstance = this;
 		StartCoroutine(GenerateEnemies());
     }
@@ -33,18 +30,6 @@ public class GameController : MonoBehaviour
         currentScore += score;
         scoreText.text = $"SCORE: {currentScore}";
     }
-
-    // Update is called once per frame
-    void Update ()
-	{
-		score += newScoreValue;
-		UpdateScore();
-	}
-
-	void UpdateScore()
-	{
-		// scoreText.text = "Score: " + score;
-	}
 
 	public void GameOver()
 	{
