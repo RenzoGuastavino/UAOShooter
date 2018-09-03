@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,19 +10,35 @@ public class GameController : MonoBehaviour
     public Vector3 enemyLimits; //-- Enemy limits (min and max position)
     public float lifeTime; //--Enemy lifeTime
 
-    // Use this for initialization
-    void Start ()
+	// public GUIText scoreText;
+	private int score;
+
+	// Use this for initialization
+	void Start ()
     {
-        StartCoroutine(GenerateEnemies());
+		score = 0;
+		UpdateScore();
+		StartCoroutine(GenerateEnemies());
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-	    
+	public void AddScore(int newScoreValue)
+	{
+		score += newScoreValue;
+		UpdateScore();
 	}
 
-    private IEnumerator GenerateEnemies()
+	void UpdateScore()
+	{
+		// scoreText.text = "Score: " + score;
+	}
+
+	public void GameOver()
+	{
+		SceneManager.LoadScene("StartingScene");
+		//LoadFirstScene();
+	}
+
+	private IEnumerator GenerateEnemies()
     {
         while(true)
         {
@@ -41,4 +58,16 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(4);
         }
     }
+
+	private IEnumerable LoadFirstScene()
+	{
+		while (true)
+		{
+			// SceneManager.LoadScene(0);
+			yield return new WaitForSeconds(1);
+		}
+		// yield return new WaitForSeconds(3);
+		// Debug.Log(" LoadScene TEST !!!");
+		
+	}
 }

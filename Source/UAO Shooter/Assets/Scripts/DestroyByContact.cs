@@ -3,8 +3,9 @@ using System.Collections;
 
 public class DestroyByContact : MonoBehaviour
 {
-	public GameObject Explosion; // > objeto explosion del enemigo
-	public GameObject PlayerExplosion; // obj explosion de la nave.
+	public GameObject Explosion; 
+	//public GameObject PlayerExplosion; 
+	public GameController gameController;
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -17,7 +18,7 @@ public class DestroyByContact : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			//Instantiate(PlayerExplosion, other.transform.position, other.transform.rotation);
-			// GameController.GameOver();
+			gameController.GameOver();
 		}
 		Destroy(other.gameObject);
 		Destroy(gameObject);
