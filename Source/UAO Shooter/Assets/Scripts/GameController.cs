@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -14,16 +15,27 @@ public class GameController : MonoBehaviour
 	// public GUIText scoreText;
 	private int score;
 
+    public Text scoreText;
+    private int currentScore = 0;
+
 	// Use this for initialization
-	void Start ()
+    void Start ()
     {
 		score = 0;
+        AddScore(currentScore);
 		UpdateScore();
 		gameControllerInstance = this;
 		StartCoroutine(GenerateEnemies());
-	}
-	
-	public void AddScore(int newScoreValue)
+    }
+
+    public void AddScore(int score)
+    {
+        currentScore += score;
+        scoreText.text = $"SCORE: {currentScore}";
+    }
+
+    // Update is called once per frame
+    void Update ()
 	{
 		score += newScoreValue;
 		UpdateScore();
@@ -48,13 +60,13 @@ public class GameController : MonoBehaviour
             {
                 var enemyPosition = new Vector3
                 {
-                    x = Random.Range(-enemyLimits.x, enemyLimits.x),
+                    x = UnityEngine.Random.Range(-enemyLimits.x, enemyLimits.x),
                     y = 0,
                     z = enemyLimits.z
                 };
                 var enemyRotation = Quaternion.identity;
 
-                Instantiate(Enemies[Random.Range(0, Enemies.Length)], enemyPosition, enemyRotation);
+                Instantiate(Enemies[UnityEngine.Random.Range(0, Enemies.Length)], enemyPosition, enemyRotation);
                 yield return new WaitForSeconds(0.5f);
             }
             yield return new WaitForSeconds(4);
