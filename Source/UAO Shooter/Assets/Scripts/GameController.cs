@@ -33,11 +33,18 @@ public class GameController : MonoBehaviour
 
 	public void GameOver()
 	{
-		SceneManager.LoadScene("StartingScene");
+        StartCoroutine(GameOverCoRoutine());
+		
 		//LoadFirstScene();
 	}
 
-	private IEnumerator GenerateEnemies()
+    private IEnumerator GameOverCoRoutine()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("StartingScene");
+    }
+
+    private IEnumerator GenerateEnemies()
     {
         while(true)
         {
