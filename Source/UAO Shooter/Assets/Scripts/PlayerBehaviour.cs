@@ -22,7 +22,8 @@ public class PlayerBehaviour : MonoBehaviour
 		if ((Input.GetButton("Fire1") || Input.GetKeyDown(KeyCode.Space)) && Time.time > _nextFire)
 		{
 			_nextFire = Time.time + FireRate;
-			Instantiate(Shot, rb.position, rb.rotation);
+			var position = rb.transform.position + new Vector3(0, 0, 1.0f); 
+			Instantiate(Shot, position, rb.rotation);
 		}
 	}
 
