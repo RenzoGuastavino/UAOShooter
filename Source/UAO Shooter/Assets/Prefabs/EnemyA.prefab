@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114765623882010634}
   - component: {fileID: 135869945439916888}
   - component: {fileID: 54360498563582484}
+  - component: {fileID: 114821335620925192}
   m_Layer: 0
   m_Name: EnemyA
   m_TagString: Untagged
@@ -155,6 +156,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+--- !u!114 &114821335620925192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193138143037460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac07171e378ff514f80151c38d45dbeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explosion: {fileID: 1908730068992772, guid: d229dfdd595853f458438636b28b4cbd, type: 2}
+  PlayerExplosion: {fileID: 0}
 --- !u!135 &135869945439916888
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -162,7 +176,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193138143037460}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

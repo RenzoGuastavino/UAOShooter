@@ -10,11 +10,14 @@ public class PlayerBehaviour : MonoBehaviour
 	public GameObject Shot;
 	public float FireRate;
 
-	private float _nextFire; 
+	private float _nextFire;
+	private AudioSource aSource;
 
 	private Rigidbody rb;
+
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		aSource = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -24,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
 			_nextFire = Time.time + FireRate;
 			var position = rb.transform.position + new Vector3(0, 0, 1.0f); 
 			Instantiate(Shot, position, rb.rotation);
+			aSource.Play();
 		}
 	}
 
