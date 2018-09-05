@@ -24,6 +24,13 @@ public class GameController : MonoBehaviour
 		StartCoroutine(GenerateEnemies());
     }
 
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+            Application.Quit();
+
+    }
+
     public void AddScore(int score)
     {
         currentScore += score;
